@@ -11,6 +11,8 @@ LANG: C++
 #include <algorithm>
 #include <numeric>
 #include<map>
+#include <cmath>
+#include <unordered_map>
 using namespace std;
 using ll = long long;//woah
 //    vector<vector<int>> a(3, vector<int>(3));
@@ -21,7 +23,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ifstream fin("temporary.in");
+    ifstream fin("temporary.in");//temporary
     ofstream fout("temporary.out"); 
     
 
