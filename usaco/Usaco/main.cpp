@@ -20,9 +20,11 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    ifstream fin("temporary.in");//temporary
-    ofstream fout("temporary.out"); 
-    
-
+    ifstream fin("Usaco/temporary.in");//temporary
+    ofstream fout("Usaco/temporary.out"); 
+    cout<<"hi from main.cpp";
+    int n;
+    fin>>n;
+    cout<<n;
 
 }
