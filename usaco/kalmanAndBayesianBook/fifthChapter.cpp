@@ -8,7 +8,6 @@
 struct Gaussian {
     double mean;
     double var;
-
 };
 Gaussian gaussian(double mean, double var){
     return {mean, var};
@@ -64,7 +63,7 @@ int main()
     DogSimulation dog(x_state.mean, process_model.mean, sensor_var, process_var);
 
     std::vector<double> measurements;
-    for (int i = 0; i <10; ++i) {
+    for (int i = 0; i <100; ++i) {
         measurements.push_back(dog.move_and_sense().second);
     }
     std::cout << "PREDICT\t\t\tUPDATE" << std::endl;

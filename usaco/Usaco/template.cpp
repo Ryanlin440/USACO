@@ -1,4 +1,4 @@
-#include <iostream> //++ -std=c++20 Usaco/main.cpp -o Usaco/ryan.out && Usaco/ryan.out
+#include <iostream> //g++ -std=c++20 Usaco/main.cpp -o Usaco/ryan.out && Usaco/ryan.out
 #include <fstream>
 #include <vector>
 #include <set>

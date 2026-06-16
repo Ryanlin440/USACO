@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ryanlin/usaco/usaco/Usaco/output/main'
+relocations:     []
+...
