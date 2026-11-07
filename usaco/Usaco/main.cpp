@@ -22,48 +22,65 @@ int main()
     cin.tie(nullptr);
     ifstream fin("Usaco/temporary.in");//temporary
     ofstream fout("Usaco/temporary.out"); 
+    int n, t;
+    cin>>n>> t;
+    vector<int>a(n);
     
-    long int i,j,a,b,c,n,k,ans,rem;
-    while(cin>>n>>a>>b>>c)
-    {
-          ans=0;
-       for(i=0;i*a<=n;++i)
-       {
-           for(j=0;i*a+j*b<=n;++j)
-           {
-                rem=n-i*a-j*b;
-                if(rem%c==0)
-                {
-                    k=rem/c;
-                ans=max(ans,i+j+k);}
-           }
-
-       }
-       cout<<ans<<endl;
+    for(int i = 0; i < n; i++){
+        cin>>a[i];
     }
-    return 0;
+    int sum=0,count=0;
+    int big = 0;
+    int lastIndex = 0;
+    for(int i = 0; i < n; i++){
+        if(lastIndex == 0){
+            if(a[i] <= t){
+                sum=a[i];
+                count=1;
+            }else{
+                sum= 0;
+                count=0;
+            }
+            for(int j = i+1; j < n; j++){
+                if(sum+a[j] > t) break;
+                sum+=a[j];
+                count++;
+                lastIndex = j;
+            }
+            // cout<<lastIndex;
+            big = count;
+            // cout<<sum<<endl;
+        }else{
+            //i > 0
+            sum -= a[i-1];//get rid of first;
+            count--;
+            // cout<<sum<<endl;
+            while(sum < t){//1 < 5
+                lastIndex++;//2
+                
+                if(lastIndex < n && sum + a[lastIndex] <= t){
+                    sum+=a[lastIndex];
+                    count++;
+                    // cout<<a[lastIndex]<<' ';
+                }else{
+                    lastIndex--;
+                    break;
+                }
+            }
+            // cout<<endl;
+            big = max(big, count);
+        }
+
+        
+        // big = max(big, count);
+    }
+    // if(!(sum+a[n-1] > t)){
+    //     count++;
+    //     big = max(big, count);
+    // }
+            
+    cout<<big;
 
 
-
-}//53 10 11 23
-//50 - 3
-//40 - 13
-//30 - 23.     10 10 10 23
-//20 - 33      10 10 11 11 11
-//10 - 43 
-//0 - 53 23 
-
-//29 7 10 12
-//28 - 1
-//21 - 8
-//14 - 15
-//7 - 22
-
-//27 4 7 10
-//24 - 3 lefover
-//20 - 7 left over
-//16 - 11
-//12 - 15 left over
-//8 - 19 left over
-//4 - 
-//4 4 4 4 4 7
+}
+//sliding window? if sum too big then reduce and vice versa
